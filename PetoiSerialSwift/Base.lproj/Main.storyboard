@@ -61,10 +61,32 @@
                                     <action selector="searchBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="LwJ-6F-D0J"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hKD-Ct-7vv">
+                                <rect key="frame" x="128" y="128" width="229" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mb-d0-AVO">
+                                <rect key="frame" x="365" y="129" width="29" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="list.dash" catalog="system"/>
+                                <connections>
+                                    <action selector="unfoldBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="DmT-HZ-jBu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="bleDevicesText" destination="hKD-Ct-7vv" id="tcK-Pm-TM2"/>
+                        <outlet property="bleSearchBtn" destination="6Ds-jg-dpe" id="9TF-7M-3Mg"/>
+                        <outlet property="calibrationBtn" destination="CB8-0W-xn1" id="5V9-Et-wZx"/>
+                        <outlet property="gyroscopeBtn" destination="7tZ-ND-swb" id="7GC-sc-QXU"/>
+                        <outlet property="restBtn" destination="6dU-ZK-wUT" id="GIs-SV-kft"/>
+                        <outlet property="unfoldBtn" destination="9Mb-d0-AVO" id="XE0-ZD-jSZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,6 +109,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

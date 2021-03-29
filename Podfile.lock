@@ -1,5 +1,5 @@
 PODS:
-  - ActionSheetPicker (1.6.2)
+  - ActionSheetPicker-3.0 (2.7.1)
   - HexColors (4.0.0)
   - PPTopMostController (0.0.1)
   - RMessage (2.3.4):
@@ -8,25 +8,25 @@ PODS:
   - SDAutoLayout (2.2.1)
 
 DEPENDENCIES:
-  - ActionSheetPicker
+  - ActionSheetPicker-3.0
   - RMessage
   - SDAutoLayout
 
 SPEC REPOS:
   trunk:
-    - ActionSheetPicker
+    - ActionSheetPicker-3.0
     - HexColors
     - PPTopMostController
     - RMessage
     - SDAutoLayout
 
 SPEC CHECKSUMS:
-  ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
+  ActionSheetPicker-3.0: 36da254b97a09ff89679ecb8b8510bd3e5bdc773
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
   PPTopMostController: 4e6f1e5f8c645bdcc74cd837a20f607ff262c048
   RMessage: c53d90b788d64387f68bce3725b309e377b6bf15
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
 
-PODFILE CHECKSUM: fce68bb1da78838c6b4b8c8f25abd3faf2de623e
+PODFILE CHECKSUM: 1cf48e8f1feafe480f2a8b0d839d0ab905b02af1
 
 COCOAPODS: 1.10.0

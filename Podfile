@@ -9,7 +9,8 @@ target 'PetoiSerialSwift' do
   #pod 'TSMessages' # no longer maintenance, RMessage insteaded
   pod 'RMessage'
   pod 'SDAutoLayout'
-  pod 'ActionSheetPicker'
+  #pod 'ActionSheetPicker' # no longer maintenance, version 3.0 insteaded
+  pod 'ActionSheetPicker-3.0'
 
   target 'PetoiSerialSwiftTests' do
     inherit! :search_paths

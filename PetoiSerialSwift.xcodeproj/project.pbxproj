@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E70C70DD97C42E78D3A1271 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BAB4012AF2E91F265DE1A0 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework */; };
 		550FE813261192A300E81E5A /* BLEMessageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FE812261192A300E81E5A /* BLEMessageDetector.swift */; };
 		559C1376260B53C800BD588E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C1375260B53C800BD588E /* Converter.m */; };
 		55CCA9A6260F1769002BCABD /* DataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCA9A5260F1769002BCABD /* DataBuffer.m */; };
@@ -21,9 +22,8 @@
 		55D245902609A66100EE5FE6 /* BluetoothLowEnergyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2458F2609A66100EE5FE6 /* BluetoothLowEnergyHandler.swift */; };
 		55D518F12611A82F0011BF4F /* Phone11Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D518F02611A82F0011BF4F /* Phone11Layout.swift */; };
 		55D519002611CC0D0011BF4F /* WidgetTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D518FF2611CC0D0011BF4F /* WidgetTools.swift */; };
-		80603D2C56BD88F7F7B1E03B /* Pods_PetoiSerialSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AC1267B2D5A180BA2FCA27 /* Pods_PetoiSerialSwift.framework */; };
-		D64307AC6772AA2ECF3B01D5 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5FE36868672FBF91354033 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework */; };
-		D97D3AECD47D935769BAD73F /* Pods_PetoiSerialSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AACDF1A9B9E28F2ADAAB5EA /* Pods_PetoiSerialSwiftTests.framework */; };
+		6A10B532CDB0EB53873886E5 /* Pods_PetoiSerialSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F2FBC426183199629D7CDE1 /* Pods_PetoiSerialSwift.framework */; };
+		D08AFB9BE2F4F16082474DEB /* Pods_PetoiSerialSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97F6BC2D2CADCB436742088 /* Pods_PetoiSerialSwiftTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,9 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AACDF1A9B9E28F2ADAAB5EA /* Pods_PetoiSerialSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetoiSerialSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		297846625C85F6183CB5CE40 /* Pods-PetoiSerialSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwiftTests/Pods-PetoiSerialSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
-		4A5FDF3CF9ABA02D9314A974 /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		201C351B5D041618AE6DD58E /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F2FBC426183199629D7CDE1 /* Pods_PetoiSerialSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetoiSerialSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		550FE812261192A300E81E5A /* BLEMessageDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEMessageDetector.swift; sourceTree = "<group>"; };
 		559C1374260B53C800BD588E /* PetoiSerialSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetoiSerialSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		559C1375260B53C800BD588E /* Converter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
@@ -70,12 +69,13 @@
 		55D2458F2609A66100EE5FE6 /* BluetoothLowEnergyHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothLowEnergyHandler.swift; sourceTree = "<group>"; };
 		55D518F02611A82F0011BF4F /* Phone11Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone11Layout.swift; sourceTree = "<group>"; };
 		55D518FF2611CC0D0011BF4F /* WidgetTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTools.swift; sourceTree = "<group>"; };
-		6E498F75891A29D391454E88 /* Pods-PetoiSerialSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift.debug.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift.debug.xcconfig"; sourceTree = "<group>"; };
-		781B38FE59AD539FF16972AE /* Pods-PetoiSerialSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwiftTests/Pods-PetoiSerialSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8FFA414969F6A3914B0F56CB /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		AC5FE36868672FBF91354033 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8AC1267B2D5A180BA2FCA27 /* Pods_PetoiSerialSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetoiSerialSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFD7463532B19F785ABA715B /* Pods-PetoiSerialSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift.release.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift.release.xcconfig"; sourceTree = "<group>"; };
+		583748E9B22C1DC017ADD7CE /* Pods-PetoiSerialSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift.debug.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		5EEF5B819CD5CBA31659CCE2 /* Pods-PetoiSerialSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwiftTests/Pods-PetoiSerialSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		69342F79F9C8633968F82BEA /* Pods-PetoiSerialSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift.release.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift.release.xcconfig"; sourceTree = "<group>"; };
+		817CDB99F74DC291F9ECF623 /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
+		89C82881271D0D5E03F3769C /* Pods-PetoiSerialSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwiftTests/Pods-PetoiSerialSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
+		98BAB4012AF2E91F265DE1A0 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97F6BC2D2CADCB436742088 /* Pods_PetoiSerialSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetoiSerialSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80603D2C56BD88F7F7B1E03B /* Pods_PetoiSerialSwift.framework in Frameworks */,
+				6A10B532CDB0EB53873886E5 /* Pods_PetoiSerialSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D97D3AECD47D935769BAD73F /* Pods_PetoiSerialSwiftTests.framework in Frameworks */,
+				D08AFB9BE2F4F16082474DEB /* Pods_PetoiSerialSwiftTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64307AC6772AA2ECF3B01D5 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework in Frameworks */,
+				4E70C70DD97C42E78D3A1271 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 				55D2455A2609A60A00EE5FE6 /* Products */,
 				559C1374260B53C800BD588E /* PetoiSerialSwift-Bridging-Header.h */,
 				EB4846E66A34B423A7C28A79 /* Pods */,
-				742B4D8EA23796003197CC5B /* Frameworks */,
+				FEAB9E89B98BE4E17022D752 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,27 +169,27 @@
 			path = PetoiSerialSwiftUITests;
 			sourceTree = "<group>";
 		};
-		742B4D8EA23796003197CC5B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E8AC1267B2D5A180BA2FCA27 /* Pods_PetoiSerialSwift.framework */,
-				AC5FE36868672FBF91354033 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework */,
-				0AACDF1A9B9E28F2ADAAB5EA /* Pods_PetoiSerialSwiftTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EB4846E66A34B423A7C28A79 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6E498F75891A29D391454E88 /* Pods-PetoiSerialSwift.debug.xcconfig */,
-				EFD7463532B19F785ABA715B /* Pods-PetoiSerialSwift.release.xcconfig */,
-				8FFA414969F6A3914B0F56CB /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig */,
-				4A5FDF3CF9ABA02D9314A974 /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig */,
-				781B38FE59AD539FF16972AE /* Pods-PetoiSerialSwiftTests.debug.xcconfig */,
-				297846625C85F6183CB5CE40 /* Pods-PetoiSerialSwiftTests.release.xcconfig */,
+				583748E9B22C1DC017ADD7CE /* Pods-PetoiSerialSwift.debug.xcconfig */,
+				69342F79F9C8633968F82BEA /* Pods-PetoiSerialSwift.release.xcconfig */,
+				201C351B5D041618AE6DD58E /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig */,
+				817CDB99F74DC291F9ECF623 /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig */,
+				5EEF5B819CD5CBA31659CCE2 /* Pods-PetoiSerialSwiftTests.debug.xcconfig */,
+				89C82881271D0D5E03F3769C /* Pods-PetoiSerialSwiftTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FEAB9E89B98BE4E17022D752 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F2FBC426183199629D7CDE1 /* Pods_PetoiSerialSwift.framework */,
+				98BAB4012AF2E91F265DE1A0 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework */,
+				E97F6BC2D2CADCB436742088 /* Pods_PetoiSerialSwiftTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,11 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55D245832609A60B00EE5FE6 /* Build configuration list for PBXNativeTarget "PetoiSerialSwift" */;
 			buildPhases = (
-				4F2851939CA6904524F4D0FE /* [CP] Check Pods Manifest.lock */,
+				701F92EE3A2A5F018AFD7430 /* [CP] Check Pods Manifest.lock */,
 				55D245552609A60A00EE5FE6 /* Sources */,
 				55D245562609A60A00EE5FE6 /* Frameworks */,
 				55D245572609A60A00EE5FE6 /* Resources */,
-				D56E876B4A4E27AC52D36AF4 /* [CP] Embed Pods Frameworks */,
+				A070C6DE9EBA7A24E795EE55 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,7 +218,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55D245862609A60B00EE5FE6 /* Build configuration list for PBXNativeTarget "PetoiSerialSwiftTests" */;
 			buildPhases = (
-				60BB5D3BDF3F14DFA8135713 /* [CP] Check Pods Manifest.lock */,
+				453359A2283511D435948088 /* [CP] Check Pods Manifest.lock */,
 				55D2456B2609A60B00EE5FE6 /* Sources */,
 				55D2456C2609A60B00EE5FE6 /* Frameworks */,
 				55D2456D2609A60B00EE5FE6 /* Resources */,
@@ -237,11 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55D245892609A60B00EE5FE6 /* Build configuration list for PBXNativeTarget "PetoiSerialSwiftUITests" */;
 			buildPhases = (
-				B241B254082EB9931C02478F /* [CP] Check Pods Manifest.lock */,
+				BF8517BCE73792437495362E /* [CP] Check Pods Manifest.lock */,
 				55D245762609A60B00EE5FE6 /* Sources */,
 				55D245772609A60B00EE5FE6 /* Frameworks */,
 				55D245782609A60B00EE5FE6 /* Resources */,
-				FAB4275E8C14F333BB47CD34 /* [CP] Embed Pods Frameworks */,
+				BEB20553459A629D7EA84F1F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -324,29 +324,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4F2851939CA6904524F4D0FE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PetoiSerialSwift-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		60BB5D3BDF3F14DFA8135713 /* [CP] Check Pods Manifest.lock */ = {
+		453359A2283511D435948088 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -368,7 +346,63 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B241B254082EB9931C02478F /* [CP] Check Pods Manifest.lock */ = {
+		701F92EE3A2A5F018AFD7430 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetoiSerialSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A070C6DE9EBA7A24E795EE55 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEB20553459A629D7EA84F1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF8517BCE73792437495362E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -388,40 +422,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D56E876B4A4E27AC52D36AF4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FAB4275E8C14F333BB47CD34 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests/Pods-PetoiSerialSwift-PetoiSerialSwiftUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -612,7 +612,7 @@
 		};
 		55D245842609A60B00EE5FE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E498F75891A29D391454E88 /* Pods-PetoiSerialSwift.debug.xcconfig */;
+			baseConfigurationReference = 583748E9B22C1DC017ADD7CE /* Pods-PetoiSerialSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -635,7 +635,7 @@
 		};
 		55D245852609A60B00EE5FE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EFD7463532B19F785ABA715B /* Pods-PetoiSerialSwift.release.xcconfig */;
+			baseConfigurationReference = 69342F79F9C8633968F82BEA /* Pods-PetoiSerialSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -657,7 +657,7 @@
 		};
 		55D245872609A60B00EE5FE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 781B38FE59AD539FF16972AE /* Pods-PetoiSerialSwiftTests.debug.xcconfig */;
+			baseConfigurationReference = 5EEF5B819CD5CBA31659CCE2 /* Pods-PetoiSerialSwiftTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -680,7 +680,7 @@
 		};
 		55D245882609A60B00EE5FE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 297846625C85F6183CB5CE40 /* Pods-PetoiSerialSwiftTests.release.xcconfig */;
+			baseConfigurationReference = 89C82881271D0D5E03F3769C /* Pods-PetoiSerialSwiftTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -703,7 +703,7 @@
 		};
 		55D2458A2609A60B00EE5FE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FFA414969F6A3914B0F56CB /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig */;
+			baseConfigurationReference = 201C351B5D041618AE6DD58E /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -724,7 +724,7 @@
 		};
 		55D2458B2609A60B00EE5FE6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A5FDF3CF9ABA02D9314A974 /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig */;
+			baseConfigurationReference = 817CDB99F74DC291F9ECF623 /* Pods-PetoiSerialSwift-PetoiSerialSwiftUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

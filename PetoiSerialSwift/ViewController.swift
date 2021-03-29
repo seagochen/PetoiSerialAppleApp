@@ -7,9 +7,9 @@
 
 import UIKit
 import CoreBluetooth
-import ActionSheetPicker
 import HexColors
 import RMessage
+import ActionSheetPicker_3_0
 
 class ViewController: UIViewController  {
     
@@ -31,6 +31,14 @@ class ViewController: UIViewController  {
     // 设置蓝牙搜索的pickerview
     var devices: [String]!
     
+    // iOS 控件
+    @IBOutlet weak var bleSearchBtn: UIButton!
+    @IBOutlet weak var bleDevicesText: UITextField!
+    @IBOutlet weak var unfoldBtn: UIButton!
+    @IBOutlet weak var calibrationBtn: UIButton!
+    @IBOutlet weak var restBtn: UIButton!
+    @IBOutlet weak var gyroscopeBtn: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +52,20 @@ class ViewController: UIViewController  {
     
     
     func initWidgets() {
-        // todo
+        // 修改文本框样式
+        WidgetTools.underline(textfield: bleDevicesText, color: bleSearchBtn.backgroundColor!)
+        
+        // 设置文本框委托模式
+        bleDevicesText.delegate = self
+        
+        // 设置展开菜单展开按钮
+        unfoldBtn.setTitle("", for: .normal)
+        
+        // 修改按钮样式
+        WidgetTools.roundCorner(button: bleSearchBtn)
+        WidgetTools.roundCorner(button: calibrationBtn)
+        WidgetTools.roundCorner(button: restBtn)
+        WidgetTools.roundCorner(button: gyroscopeBtn)
     }
     
 
@@ -100,6 +121,81 @@ class ViewController: UIViewController  {
    
     }
     
-  
+    @IBAction func unfoldBtnPressed(_ sender: UIButton) {
+        
+        ActionSheetStringPicker.show(withTitle: "可用蓝牙设备", rows: devices, initialSelection: 0, doneBlock: { [self]
+            picker, indexes, values in
 
+            // for debug
+            print("values = \(String(describing: values))")
+            print("indexes = \(indexes)")
+            print("picker = \(String(describing: picker))")
+            
+            // 显示选择的内容
+            let stringVar = String(describing: values!)
+            self.bleDevicesText.text = "Device: " + String(describing: stringVar)
+            
+            // 设置连结蓝牙设备
+//            if peripheral != nil && bluetooth.isConnected(peripheral: peripheral) {
+//                bluetooth.disconnect(peripheral: peripheral)
+//            } else {
+//                setupBluetoothConnection(index: indexes)
+//            }
+            
+            return
+        }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
+    }
+    
+    @objc func recv() {
+        let data = bluetooth.recvData()
+
+        if data.count > 0 {
+            if let feedback = String(data: data, encoding: .utf8) {
+                print(feedback)
+            }
+        }
+    }
+    
+    func setupBluetoothConnection(index: Int) {
+        // 尝试对设备进行连结
+        let peripherals = self.bluetooth.getPeripheralList()
+        self.peripheral = peripherals[index]
+        self.bluetooth.connect(peripheral: self.peripheral!)
+        
+        // 设置信道
+        guard let peripheral = peripheral else {
+            print("peripheral is null")
+            return
+        }
+
+        if bluetooth.isConnected(peripheral: peripheral) {
+            let characteristics = bluetooth.getCharacteristic()
+            if characteristics.count >= 2 {
+
+                rxdChar = characteristics[0]
+                txdChar = characteristics[1]
+
+                // 设置接收数据
+                guard let rxdChar = rxdChar else {
+                    print("rxdChar is null")
+                    return
+                }
+
+                bluetooth.setNotifyCharacteristic(peripheral: peripheral, notify: rxdChar)
+        
+        
+            }
+        }
+        
+        // 启动后台定时器，开始接收来自蓝牙设备的数据
+        self.bleMsgHandler?.startListen(target: self, selector: #selector(recv))
+    }
+}
+
+
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return false
+    }
 }
