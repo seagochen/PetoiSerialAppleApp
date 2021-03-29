@@ -1,0 +1,24 @@
+PODS:
+  - HexColors (2.2.1)
+  - SDAutoLayout (2.2.1)
+  - TSMessages (0.9.12):
+    - HexColors (~> 2.2.0)
+
+DEPENDENCIES:
+  - SDAutoLayout
+  - TSMessages
+
+SPEC REPOS:
+  trunk:
+    - HexColors
+    - SDAutoLayout
+    - TSMessages
+
+SPEC CHECKSUMS:
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
+  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
+  TSMessages: c8cc7b80f2a833af533872cd02010cac061532cc
+
+PODFILE CHECKSUM: 0af4125016225ff349378c8c1356b260de062ddd
+
+COCOAPODS: 1.10.0

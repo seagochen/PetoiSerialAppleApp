@@ -23,11 +23,8 @@ class ViewController: UIViewController {
     // 接收数据接口
     var rxdChar: CBCharacteristic?
     
-    // 使用定时器，按照固定的频率刷新数据
-    let millisecond = 100
-    
-    // 定时器
-    var timer : Timer?
+    // 接收和发送蓝牙数据
+    var bleMsgHandler: BLEMessageDetector?
     
     
     override func viewDidLoad() {
@@ -35,37 +32,18 @@ class ViewController: UIViewController {
 
         // 初始化蓝牙
         bluetooth = BluetoothLowEnergy()
-    }
-
-    // 2.开始计时
-    func startBackgroundTimer() {
-
-        // 创建定时器线程
-        timer = Timer.scheduledTimer(timeInterval: 1.0 / 1000.0 * Double(millisecond),
-                                     target: self, selector: #selector(updataSecond),
-                                     userInfo: nil, repeats: true)
-       
-        //调用fire()会立即启动计时器
-        timer!.fire()
-     }
-
-    // 3.定时操作
-    @objc func updataSecond() {
-        print("fired")
         
+        // 初始化信道
+        bleMsgHandler = BLEMessageDetector()
+    }
+    
+    @objc func recv() {
         let data = bluetooth.recvData()
+
         if data.count > 0 {
             if let feedback = String(data: data, encoding: .utf8) {
-                print("------->", feedback)
+                print(feedback)
             }
-        }
-    }
-
-    // 4.停止计时
-    func stopTimer() {
-        if timer != nil {
-            timer!.invalidate() //销毁timer
-            timer = nil
         }
     }
     
@@ -90,50 +68,52 @@ class ViewController: UIViewController {
     
     @IBAction func connectBluetoothPeripherals(_ sender: Any) {
         
-        // connect to some centain device
-        let deviceList = bluetooth.getPeripheralList()
-        if !deviceList.isEmpty {
-            for device in deviceList {
-                
-                print("found device: \(device.name ?? "")")
-                
-                // 找到需要的设备
-                // TODO
-                if device.name == "JDY-23A-BLE" {
-                    bluetooth.connect(peripheral: device)
-                    
-                    // 记录需要的设备
-                    peripheral = device
-                }
-            }
-        }
+        // 启动后台定时器
+        bleMsgHandler?.startListen(target: self, selector: #selector(recv))
         
-        
-        // 获取需要的信道
-        guard let peripheral = peripheral else {
-            print("peripheral is null")
-            return
-        }
-        
-        if bluetooth.isConnected(peripheral: peripheral) {
-            let characteristics = bluetooth.getCharacteristic()
-            if characteristics.count >= 2 {
-                
-                rxdChar = characteristics[0]
-                txdChar = characteristics[1]
-                
-                // 设置接收数据
-                guard let rxdChar = rxdChar else {
-                    print("rxdChar is null")
-                    return
-                }
-                
-                bluetooth.setNotifyCharacteristic(peripheral: peripheral, notify: rxdChar)
-                
-                // 启动后台定时器
-                startBackgroundTimer()
-            }
-        }
+//        // connect to some centain device
+//        let deviceList = bluetooth.getPeripheralList()
+//        if !deviceList.isEmpty {
+//            for device in deviceList {
+//
+//                print("found device: \(device.name ?? "")")
+//
+//                // 找到需要的设备
+//                // TODO
+//                if device.name == "JDY-23A-BLE" {
+//                    bluetooth.connect(peripheral: device)
+//
+//                    // 记录需要的设备
+//                    peripheral = device
+//                }
+//            }
+//        }
+//
+//
+//        // 获取需要的信道
+//        guard let peripheral = peripheral else {
+//            print("peripheral is null")
+//            return
+//        }
+//
+//        if bluetooth.isConnected(peripheral: peripheral) {
+//            let characteristics = bluetooth.getCharacteristic()
+//            if characteristics.count >= 2 {
+//
+//                rxdChar = characteristics[0]
+//                txdChar = characteristics[1]
+//
+//                // 设置接收数据
+//                guard let rxdChar = rxdChar else {
+//                    print("rxdChar is null")
+//                    return
+//                }
+//
+//                bluetooth.setNotifyCharacteristic(peripheral: peripheral, notify: rxdChar)
+//
+//
+//            }
+//        }
         
     }
     
