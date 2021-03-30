@@ -107,13 +107,8 @@ class BluetoothLowEnergy: NSObject {
     }
 
     // MARK: 5.2. 接收数据
-    func recvData() -> Data {
-        let data = buffer.tryGetToken()
-        guard let d = data else {
-            return Data()
-        }
-        
-        return d
+    func recvData() -> Data? {
+        return buffer.tryGetToken()
     }
     
     // MARK: 6. 断开连结
@@ -211,7 +206,7 @@ extension BluetoothLowEnergy: CBPeripheralDelegate {
                     didDiscoverServices error: Error?) {
         
         if error != nil { // failed
-//            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n error:\(String(describing: error))")
+            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n error:\(String(describing: error))")
             return
         }
         
@@ -227,11 +222,11 @@ extension BluetoothLowEnergy: CBPeripheralDelegate {
                         CBService, error: Error?) {
         
         if error != nil { // failed
-//            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n service:\(String(describing: service))\n error:\(String(describing: error))")
+            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n service:\(String(describing: service))\n error:\(String(describing: error))")
             return
         }
         
-//        print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n service:\(String(describing: service))")
+        print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n service:\(String(describing: service))")
           
         for characteristic in service.characteristics ?? [] {
             uuids.append(characteristic)
@@ -244,13 +239,14 @@ extension BluetoothLowEnergy: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
         if error != nil {
-//            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))\n error:\(String(describing: error))")
+            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))\n error:\(String(describing: error))")
             return
         }
         
-//        print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))")
+        print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))")
         
         if let data = characteristic.value {
+            print("recv from device with \(data.count) bytes")
             self.buffer.append(data)
         }
     }
@@ -258,7 +254,7 @@ extension BluetoothLowEnergy: CBPeripheralDelegate {
     //MARK: 检测中心向外设写数据是否成功
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         if error != nil {
-//            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))\n error:\(String(describing: error))")
+            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))\n error:\(String(describing: error))")
             return
         }
         

@@ -31,6 +31,9 @@ class ViewController: UIViewController  {
     // 设置蓝牙搜索的pickerview
     var devices: [CBPeripheral]!
     
+    // 蓝牙输出文本缓冲
+    var outputString: String = ""
+    
     // iOS 控件
     @IBOutlet weak var bleSearchBtn: UIButton!
     @IBOutlet weak var bleDevicesText: UITextField!
@@ -38,6 +41,7 @@ class ViewController: UIViewController  {
     @IBOutlet weak var calibrationBtn: UIButton!
     @IBOutlet weak var restBtn: UIButton!
     @IBOutlet weak var gyroscopeBtn: UIButton!
+    @IBOutlet weak var outputTextView: UITextView!
     
     
     override func viewDidLoad() {
@@ -53,7 +57,9 @@ class ViewController: UIViewController  {
     
     // MARK: 对面板控件进行初始化的函数
     func initWidgets() {
-        /// 修改文本框样式 ///
+        /**
+         * 修改文本框样式
+         */
         // 把文本框改成下划线的形式
         WidgetTools.underline(textfield: bleDevicesText, color: bleSearchBtn.backgroundColor!)
         // 修改文本框内容
@@ -61,15 +67,49 @@ class ViewController: UIViewController  {
         // 设置文本框委托模式
         bleDevicesText.delegate = self
         
-        /// 设置设备展开菜单按钮 ///
+        /**
+         * 设置设备展开菜单按钮
+         */
         // 删除可能出现的文字
         unfoldBtn.setTitle("", for: .normal)
         
-        /// 修改按钮样式：圆角矩形 ///
+        // 给按钮设置为圆角矩形
         WidgetTools.roundCorner(button: bleSearchBtn)
         WidgetTools.roundCorner(button: calibrationBtn)
         WidgetTools.roundCorner(button: restBtn)
         WidgetTools.roundCorner(button: gyroscopeBtn)
+        
+        disableAllFuncBtns()
+        
+        
+        /**
+         * 修改输出文本框内容
+         */
+        outputTextView.text = "Output:\n\t"
+    }
+
+
+    func disableAllFuncBtns() {
+        calibrationBtn.alpha = 0.4
+        calibrationBtn.isEnabled = false
+        
+        restBtn.alpha = 0.4
+        restBtn.isEnabled = false
+        
+        gyroscopeBtn.alpha = 0.4
+        gyroscopeBtn.isEnabled = false
+    }
+    
+
+    func enableAllFuncBtns() {
+        calibrationBtn.alpha = 1
+        calibrationBtn.isEnabled = true
+        
+        restBtn.alpha = 1
+        restBtn.isEnabled = true
+        
+        gyroscopeBtn.alpha = 1
+        gyroscopeBtn.isEnabled = true
     }
     
 
@@ -138,11 +178,17 @@ class ViewController: UIViewController  {
             sender.alpha = 0.4
 
         case "Disconnect":
+            // 停止alarm
+            bleMsgHandler?.stopListen()
+            
             // 断开蓝牙连结
             bluetooth.disconnect(peripheral: peripheral!)
             
             // 修改按钮文字
-            bleSearchBtn.setTitle("Connect", for: .normal)
+            bleSearchBtn.setTitle("Search", for: .normal)
+
+            // 关闭功能按钮
+            disableAllFuncBtns()
             
         default:
             break
@@ -191,6 +237,28 @@ class ViewController: UIViewController  {
     }
 
 
+    // MARK: 校准
+    @IBAction func calibrationPressed(_ sender: UIButton) {
+        outputString = ""
+        
+        bluetooth.sendData(data: Converter.cvtString(toData: "c"), peripheral: peripheral!, characteristic: txdChar!)
+    }
+    
+    
+    @IBAction func restPressed(_ sender: UIButton) {
+        outputString = ""
+        
+        bluetooth.sendData(data: Converter.cvtString(toData: "d"), peripheral: peripheral!, characteristic: txdChar!)
+    }
+    
+    
+    @IBAction func gyrosocopePressed(_ sender: UIButton) {
+        outputString = ""
+        
+        bluetooth.sendData(data: Converter.cvtString(toData: "g"), peripheral: peripheral!, characteristic: txdChar!)
+    }
+    
+    
     // MARK: 尝试建立管道
     @objc func setupBLETunnels() {
         
@@ -240,11 +308,11 @@ class ViewController: UIViewController  {
             // 设置监听信道
             bluetooth.setNotifyCharacteristic(peripheral: self.peripheral!, notify: rxdChar)
             
-            // 启动后台定时器，开始接收并处理来自蓝牙设备的数据
-            self.bleMsgHandler?.startListen(target: self, selector: #selector(recv))
-            
-            // 回到主线程，修改消息
+            // 回到主线程
             DispatchQueue.main.async {
+                
+                // 启动后台定时器，开始接收并处理来自蓝牙设备的数据
+                self.bleMsgHandler?.startListen(target: self, selector: #selector(self.recv))
                 
                 // 弹出消息提示框
                 RMessage.showNotification(withTitle: "蓝牙连结成功", subtitle: "已连结到设备\(String(describing: self.peripheral!.name!))，开始监听消息中...", type: .success, customTypeName: nil, duration: 3, callback: nil)
@@ -253,6 +321,9 @@ class ViewController: UIViewController  {
                 self.bleSearchBtn.setTitle("Disconnect", for: .normal)
                 self.bleSearchBtn.isEnabled = true
                 self.bleSearchBtn.alpha = 1
+
+                // 允许用户使用全部的按钮
+                self.enableAllFuncBtns()
             }
             
         } else {
@@ -302,13 +373,20 @@ class ViewController: UIViewController  {
 
     // MARK: 蓝牙消息处理函数
     @objc func recv() {
-        let data = bluetooth.recvData()
         
-        print("debug...")
+        
+        let data = bluetooth.recvData()
+        if data != nil {
+            if let feedback = String(data: data!, encoding: .utf8) {
+                
+                // 将当前的文本粘贴到输出的文本后面
+                let trimstr = "Output:\n\t" + feedback.replacingOccurrences(of: "\r\n", with: "\n")
+                
+                // 更新数据
+                DispatchQueue.main.async {
+                    self.outputTextView.text = trimstr
+                }
 
-        if data.count > 0 {
-            if let feedback = String(data: data, encoding: .utf8) {
-                print(feedback)
             }
         }
     }

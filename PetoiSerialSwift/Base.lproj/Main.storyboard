@@ -33,6 +33,9 @@
                                 <state key="normal" title="Calibration">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="calibrationPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="xWx-Vc-gJy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dU-ZK-wUT">
                                 <rect key="frame" x="148" y="200" width="100" height="45"/>
@@ -41,6 +44,9 @@
                                 <state key="normal" title="Rest">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="restPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="TE1-lU-j4r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tZ-ND-swb">
                                 <rect key="frame" x="294" y="200" width="100" height="45"/>
@@ -49,6 +55,9 @@
                                 <state key="normal" title="Gyroscope">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="gyrosocopePressed:" destination="BYZ-38-t0r" eventType="touchDown" id="Va8-2s-qFc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ds-jg-dpe">
                                 <rect key="frame" x="20" y="122" width="100" height="45"/>
@@ -84,6 +93,7 @@
                         <outlet property="bleSearchBtn" destination="6Ds-jg-dpe" id="9TF-7M-3Mg"/>
                         <outlet property="calibrationBtn" destination="CB8-0W-xn1" id="5V9-Et-wZx"/>
                         <outlet property="gyroscopeBtn" destination="7tZ-ND-swb" id="7GC-sc-QXU"/>
+                        <outlet property="outputTextView" destination="8xJ-Cg-6CC" id="xYP-oR-1PN"/>
                         <outlet property="restBtn" destination="6dU-ZK-wUT" id="GIs-SV-kft"/>
                         <outlet property="unfoldBtn" destination="9Mb-d0-AVO" id="XE0-ZD-jSZ"/>
                     </connections>

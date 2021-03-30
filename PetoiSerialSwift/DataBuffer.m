@@ -14,6 +14,7 @@
 @property NSMutableArray* tokens;
 @property NSInteger header;
 @property NSInteger capacity;
+@property NSLock*   lock;
 @end
 
 
@@ -24,6 +25,9 @@
 {
     if (self = [super init]) {
         [self realloc: 1024];
+        
+        // inititalize thread lock
+        self.lock = [[NSLock alloc] init];
     }
     
     return self;
@@ -34,6 +38,9 @@
 {
     if (self = [super init]) {
         [self realloc: capacity];
+        
+        // inititalize thread lock
+        self.lock = [[NSLock alloc] init];
     }
     
     return self;
@@ -44,7 +51,10 @@
 {
     if (self.buffer != nil) {
         free(self.buffer);
+        
+        // release objc objects
         self.buffer = nil;
+        self.lock = nil;
     }
 };
 
@@ -186,36 +196,48 @@
 {
     if (! [self isString:data]) return;
     
-    // 将数据写入缓冲
-    [self writeToBuffer:data];
-    
-    // 持续扫描，直到返回的数值为 -1
-    while (true) {
-        // 从数据中抓取token结尾，这里的结尾定义默认为\r\n
-        NSInteger tailer = [self nextTokenStartPos];
+    if ([self.lock tryLock])
+    {
+        // 将数据写入缓冲
+        [self writeToBuffer:data];
         
-        if (tailer == -1) break;
+        // 持续扫描，直到返回的数值为 -1
+        while (true) {
+            // 从数据中抓取token结尾，这里的结尾定义默认为\r\n
+            NSInteger tailer = [self nextTokenStartPos];
+            
+            if (tailer == -1) break;
+            
+            // 找到了完整的数据位，将数据从buffer中拷贝出来
+            NSData* token = [Converter cvtCBytesToData:self.buffer length:tailer];
+            
+            // 把数据写入MutableArray
+            [self.tokens addObject:token];
+            
+            // 然后将buffer中的剩余数据拷贝到0号位
+            [self overallMove:tailer];
+        }
         
-        // 找到了完整的数据位，将数据从buffer中拷贝出来
-        NSData* token = [Converter cvtCBytesToData:self.buffer length:tailer];
-        
-        // 把数据写入MutableArray
-        [self.tokens addObject:token];
-        
-        // 然后将buffer中的剩余数据拷贝到0号位
-        [self overallMove:tailer];
+        [self.lock unlock];
     }
 };
 
 
 - (NSData*)tryGetToken
 {
-    if ([self.tokens count] > 0) {
-        NSData* data = [self.tokens objectAtIndex: 0];
-        [self.tokens removeObjectAtIndex: 0];
-        return data;
+    if ([self.lock tryLock]) {
+        
+        if ([self.tokens count] > 0) {
+            NSData* data = [self.tokens objectAtIndex: 0];
+            [self.tokens removeObjectAtIndex: 0];
+            
+            [self.lock unlock];
+            
+            return data;
+        }
+        
+        [self.lock unlock];
     }
-    
     return nil;
 };
 
