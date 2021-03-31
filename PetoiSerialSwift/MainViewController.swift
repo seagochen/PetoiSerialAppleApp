@@ -11,7 +11,7 @@ import HexColors
 import RMessage
 import ActionSheetPicker_3_0
 
-class ViewController: UIViewController  {
+class MainViewController: UIViewController  {
     
     // 蓝牙设备管理类
     var bluetooth: BluetoothLowEnergy!
@@ -51,8 +51,56 @@ class ViewController: UIViewController  {
         // 对控件进行调整
         initWidgets()
         
-        // 对工具进行初始化
+        // 对信道蓝牙相关通信做准备
         initUtilities()
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        // 蓝牙设备管理类
+        delegate.bluetooth = bluetooth
+        
+        // 蓝牙BLE设备
+        delegate.peripheral = peripheral
+        
+        // 发送数据接口
+        delegate.txdChar = txdChar
+        
+        // 接收数据接口
+        delegate.rxdChar = rxdChar
+        
+        // 接收和发送蓝牙数据
+        delegate.bleMsgHandler = bleMsgHandler
+        
+        // 设置蓝牙搜索的pickerview
+        delegate.devices = devices
+    }
+    
+    func initUtilities() {
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        // 蓝牙设备管理类
+        bluetooth = delegate.bluetooth
+        
+        // 蓝牙BLE设备
+        peripheral = delegate.peripheral
+        
+        // 发送数据接口
+        txdChar = delegate.txdChar
+        
+        // 接收数据接口
+        rxdChar = delegate.rxdChar
+        
+        // 接收和发送蓝牙数据
+        bleMsgHandler = delegate.bleMsgHandler
+        
+        // 设置蓝牙搜索的pickerview
+        devices = delegate.devices
     }
     
     
@@ -87,20 +135,6 @@ class ViewController: UIViewController  {
         outputTextView.text = "Output:\n\t"
         WidgetTools.roundCorner(textView: outputTextView, boardColor: bleSearchBtn.backgroundColor!)
     }
-    
-
-    // MARK: 对蓝牙组建等进行初始化的函数
-    func initUtilities() {
-        // 初始化蓝牙
-        bluetooth = BluetoothLowEnergy()
-        
-        // 初始化信道
-        bleMsgHandler = BLEMessageDetector()
-        
-        // 清空列表，避免出现异常
-        devices = []
-    }
-    
     
     func disableConnectBtn() {
         connectBtn.isEnabled = false
@@ -395,7 +429,7 @@ class ViewController: UIViewController  {
 
 
 
-extension ViewController: UITextFieldDelegate {
+extension MainViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return false
     }

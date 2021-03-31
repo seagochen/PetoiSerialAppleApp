@@ -6,14 +6,43 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    // 蓝牙设备管理类
+    var bluetooth: BluetoothLowEnergy!
+    
+    // 蓝牙BLE设备
+    var peripheral: CBPeripheral?
+    
+    // 发送数据接口
+    var txdChar: CBCharacteristic?
+    
+    // 接收数据接口
+    var rxdChar: CBCharacteristic?
+    
+    // 接收和发送蓝牙数据
+    var bleMsgHandler: BLEMessageDetector?
+    
+    // 设置蓝牙搜索的pickerview
+    var devices: [CBPeripheral]!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 初始化蓝牙
+        bluetooth = BluetoothLowEnergy()
+        
+        // 初始化信道
+        bleMsgHandler = BLEMessageDetector()
+        
+        // 清空列表，避免出现异常
+        devices = []
+        
         return true
     }
 

@@ -10,18 +10,21 @@
 		4E70C70DD97C42E78D3A1271 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98BAB4012AF2E91F265DE1A0 /* Pods_PetoiSerialSwift_PetoiSerialSwiftUITests.framework */; };
 		550FE813261192A300E81E5A /* BLEMessageDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550FE812261192A300E81E5A /* BLEMessageDetector.swift */; };
 		5510BB85261423B5000FE472 /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BB84261423B5000FE472 /* ColorConverter.swift */; };
+		5510BB90261448B7000FE472 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BB8F261448B7000FE472 /* CalibrationViewController.swift */; };
+		5510BB982614499D000FE472 /* ViewJumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BB972614499D000FE472 /* ViewJumper.swift */; };
+		5510BBA0261449D4000FE472 /* PadLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BB9F261449D4000FE472 /* PadLayout.swift */; };
 		559C1376260B53C800BD588E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C1375260B53C800BD588E /* Converter.m */; };
 		55CCA9A6260F1769002BCABD /* DataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCA9A5260F1769002BCABD /* DataBuffer.m */; };
 		55D2455D2609A60A00EE5FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2455C2609A60A00EE5FE6 /* AppDelegate.swift */; };
 		55D2455F2609A60A00EE5FE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2455E2609A60A00EE5FE6 /* SceneDelegate.swift */; };
-		55D245612609A60A00EE5FE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D245602609A60A00EE5FE6 /* ViewController.swift */; };
+		55D245612609A60A00EE5FE6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D245602609A60A00EE5FE6 /* MainViewController.swift */; };
 		55D245642609A60A00EE5FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D245622609A60A00EE5FE6 /* Main.storyboard */; };
 		55D245662609A60B00EE5FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55D245652609A60B00EE5FE6 /* Assets.xcassets */; };
 		55D245692609A60B00EE5FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D245672609A60B00EE5FE6 /* LaunchScreen.storyboard */; };
 		55D245742609A60B00EE5FE6 /* PetoiSerialSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D245732609A60B00EE5FE6 /* PetoiSerialSwiftTests.swift */; };
 		55D2457F2609A60B00EE5FE6 /* PetoiSerialSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2457E2609A60B00EE5FE6 /* PetoiSerialSwiftUITests.swift */; };
 		55D245902609A66100EE5FE6 /* BluetoothLowEnergyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2458F2609A66100EE5FE6 /* BluetoothLowEnergyHandler.swift */; };
-		55D518F12611A82F0011BF4F /* Phone11Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D518F02611A82F0011BF4F /* Phone11Layout.swift */; };
+		55D518F12611A82F0011BF4F /* PhoneLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D518F02611A82F0011BF4F /* PhoneLayout.swift */; };
 		55D519002611CC0D0011BF4F /* WidgetTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D518FF2611CC0D0011BF4F /* WidgetTools.swift */; };
 		6A10B532CDB0EB53873886E5 /* Pods_PetoiSerialSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F2FBC426183199629D7CDE1 /* Pods_PetoiSerialSwift.framework */; };
 		D08AFB9BE2F4F16082474DEB /* Pods_PetoiSerialSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E97F6BC2D2CADCB436742088 /* Pods_PetoiSerialSwiftTests.framework */; };
@@ -49,6 +52,9 @@
 		2F2FBC426183199629D7CDE1 /* Pods_PetoiSerialSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetoiSerialSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		550FE812261192A300E81E5A /* BLEMessageDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEMessageDetector.swift; sourceTree = "<group>"; };
 		5510BB84261423B5000FE472 /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
+		5510BB8F261448B7000FE472 /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
+		5510BB972614499D000FE472 /* ViewJumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJumper.swift; sourceTree = "<group>"; };
+		5510BB9F261449D4000FE472 /* PadLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadLayout.swift; sourceTree = "<group>"; };
 		559C1374260B53C800BD588E /* PetoiSerialSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetoiSerialSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		559C1375260B53C800BD588E /* Converter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
 		559C137A260B53DA00BD588E /* Converter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Converter.h; sourceTree = "<group>"; };
@@ -57,7 +63,7 @@
 		55D245592609A60A00EE5FE6 /* PetoiSerialSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetoiSerialSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D2455C2609A60A00EE5FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D2455E2609A60A00EE5FE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		55D245602609A60A00EE5FE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		55D245602609A60A00EE5FE6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		55D245632609A60A00EE5FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55D245652609A60B00EE5FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55D245682609A60B00EE5FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,7 +75,7 @@
 		55D2457E2609A60B00EE5FE6 /* PetoiSerialSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetoiSerialSwiftUITests.swift; sourceTree = "<group>"; };
 		55D245802609A60B00EE5FE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D2458F2609A66100EE5FE6 /* BluetoothLowEnergyHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothLowEnergyHandler.swift; sourceTree = "<group>"; };
-		55D518F02611A82F0011BF4F /* Phone11Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phone11Layout.swift; sourceTree = "<group>"; };
+		55D518F02611A82F0011BF4F /* PhoneLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLayout.swift; sourceTree = "<group>"; };
 		55D518FF2611CC0D0011BF4F /* WidgetTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTools.swift; sourceTree = "<group>"; };
 		583748E9B22C1DC017ADD7CE /* Pods-PetoiSerialSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwift.debug.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwift/Pods-PetoiSerialSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		5EEF5B819CD5CBA31659CCE2 /* Pods-PetoiSerialSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetoiSerialSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-PetoiSerialSwiftTests/Pods-PetoiSerialSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,22 +140,25 @@
 		55D2455B2609A60A00EE5FE6 /* PetoiSerialSwift */ = {
 			isa = PBXGroup;
 			children = (
-				550FE812261192A300E81E5A /* BLEMessageDetector.swift */,
-				55CCA9A4260F1769002BCABD /* DataBuffer.h */,
-				55CCA9A5260F1769002BCABD /* DataBuffer.m */,
-				559C137A260B53DA00BD588E /* Converter.h */,
-				559C1375260B53C800BD588E /* Converter.m */,
-				5510BB84261423B5000FE472 /* ColorConverter.swift */,
 				55D2455C2609A60A00EE5FE6 /* AppDelegate.swift */,
 				55D2455E2609A60A00EE5FE6 /* SceneDelegate.swift */,
-				55D245602609A60A00EE5FE6 /* ViewController.swift */,
+				55D245602609A60A00EE5FE6 /* MainViewController.swift */,
+				5510BB8F261448B7000FE472 /* CalibrationViewController.swift */,
 				55D245622609A60A00EE5FE6 /* Main.storyboard */,
 				55D245652609A60B00EE5FE6 /* Assets.xcassets */,
 				55D245672609A60B00EE5FE6 /* LaunchScreen.storyboard */,
 				55D2456A2609A60B00EE5FE6 /* Info.plist */,
 				55D2458F2609A66100EE5FE6 /* BluetoothLowEnergyHandler.swift */,
-				55D518F02611A82F0011BF4F /* Phone11Layout.swift */,
+				550FE812261192A300E81E5A /* BLEMessageDetector.swift */,
+				55CCA9A4260F1769002BCABD /* DataBuffer.h */,
+				55CCA9A5260F1769002BCABD /* DataBuffer.m */,
+				559C137A260B53DA00BD588E /* Converter.h */,
+				559C1375260B53C800BD588E /* Converter.m */,
+				5510BB972614499D000FE472 /* ViewJumper.swift */,
+				5510BB84261423B5000FE472 /* ColorConverter.swift */,
 				55D518FF2611CC0D0011BF4F /* WidgetTools.swift */,
+				55D518F02611A82F0011BF4F /* PhoneLayout.swift */,
+				5510BB9F261449D4000FE472 /* PadLayout.swift */,
 			);
 			path = PetoiSerialSwift;
 			sourceTree = "<group>";
@@ -434,14 +443,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D518F12611A82F0011BF4F /* Phone11Layout.swift in Sources */,
+				55D518F12611A82F0011BF4F /* PhoneLayout.swift in Sources */,
 				559C1376260B53C800BD588E /* Converter.m in Sources */,
 				5510BB85261423B5000FE472 /* ColorConverter.swift in Sources */,
 				55D519002611CC0D0011BF4F /* WidgetTools.swift in Sources */,
-				55D245612609A60A00EE5FE6 /* ViewController.swift in Sources */,
+				5510BB90261448B7000FE472 /* CalibrationViewController.swift in Sources */,
+				55D245612609A60A00EE5FE6 /* MainViewController.swift in Sources */,
 				55D2455D2609A60A00EE5FE6 /* AppDelegate.swift in Sources */,
 				55D245902609A66100EE5FE6 /* BluetoothLowEnergyHandler.swift in Sources */,
+				5510BBA0261449D4000FE472 /* PadLayout.swift in Sources */,
 				550FE813261192A300E81E5A /* BLEMessageDetector.swift in Sources */,
+				5510BB982614499D000FE472 /* ViewJumper.swift in Sources */,
 				55D2455F2609A60A00EE5FE6 /* SceneDelegate.swift in Sources */,
 				55CCA9A6260F1769002BCABD /* DataBuffer.m in Sources */,
 			);

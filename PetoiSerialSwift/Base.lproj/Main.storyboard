@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PetoiSerialSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PetoiSerialSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,6 +33,9 @@
                                 <state key="normal" title="Calibration">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="XVh-FX-yVz" kind="show" id="QsD-34-ukf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dU-ZK-wUT">
                                 <rect key="frame" x="148" y="246" width="100" height="45"/>
@@ -79,7 +82,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjd-uY-6M8">
-                                <rect key="frame" x="20" y="135" width="266" height="45"/>
+                                <rect key="frame" x="20" y="631" width="266" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -91,7 +94,7 @@
                     </view>
                     <connections>
                         <outlet property="bleSearchBtn" destination="6Ds-jg-dpe" id="9TF-7M-3Mg"/>
-                        <outlet property="calibrationBtn" destination="CB8-0W-xn1" id="5V9-Et-wZx"/>
+                        <outlet property="calibrationBtn" destination="CB8-0W-xn1" id="H2H-nV-1S3"/>
                         <outlet property="connectBtn" destination="RL6-u1-LXW" id="6Rn-ZH-Yt9"/>
                         <outlet property="gyroscopeBtn" destination="7tZ-ND-swb" id="7GC-sc-QXU"/>
                         <outlet property="outputTextView" destination="8xJ-Cg-6CC" id="xYP-oR-1PN"/>
@@ -103,18 +106,30 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="75.669642857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--Calibration View Controller-->
         <scene sceneID="5fj-QL-2PN">
             <objects>
-                <viewController id="XVh-FX-yVz" sceneMemberID="viewController">
+                <viewController id="XVh-FX-yVz" customClass="CalibrationViewController" customModule="PetoiSerialSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JTZ-mw-Hiu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmB-iW-8fK">
+                                <rect key="frame" x="184" y="376" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="pQR-zD-F9i" kind="unwind" unwindAction="closeWithSegue:" id="Iay-ni-fX0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="a1H-lc-550"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zYB-ey-9Lq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGf-b0-axB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="pQR-zD-F9i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="952" y="76"/>
         </scene>
