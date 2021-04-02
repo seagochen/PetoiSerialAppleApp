@@ -33,12 +33,14 @@ class MainViewController: UIViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("MainVC: viewDidLoad")
+        
         // 对控件进行调整
         initWidgets()
         
         // 对信道蓝牙相关通信做准备
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        bleHelper = BLESignalStackHandler(output: outputTextView, delegate: delegate)
+        bleHelper = BLESignalStackHandler(textview: outputTextView, delegate: delegate)
     }
 
     

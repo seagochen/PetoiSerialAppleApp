@@ -25,8 +25,8 @@ class BLESignalStackHandler:  NSObject {
     private var bleMsgHandler: BLEMessageDetector?  // 接收和发送蓝牙数据
     private var devices: [CBPeripheral]!  // 设置蓝牙搜索的pickerview
     
-    private weak var output: UITextView! // 输出
-    private weak var button: UIButton! // 一些特殊按键的状态反馈
+    private var output: UITextView! // 输出
+    private var button: UIButton! // 一些特殊按键的状态反馈
     private weak var delegate: AppDelegate! // AppDelegate
     
     private var success: DoneClosure?
@@ -35,18 +35,20 @@ class BLESignalStackHandler:  NSObject {
     private var buffer: StringBuffer!
     
     
-    init(output: UITextView, delegate: AppDelegate) {
+    init(textview: UITextView, delegate: AppDelegate) {
         super.init()
         
         self.delegate = delegate
-        self.output = output
         self.buffer = StringBuffer()
+        self.output = textview
         
         // 对蓝牙设备进行初始化
         loadBleInformation()
     }
     
     deinit {
+        print("deinit BLE handler")
+        
         // 销毁前，把现有的蓝牙设备状态及相关信息存储回delegate
         saveBleInformation()
         
@@ -163,6 +165,11 @@ class BLESignalStackHandler:  NSObject {
     }
     
     
+    func outputView(output: UITextView) {
+        self.output = output
+    }
+    
+    
     // MARK: 建立与选定设备之间的连结
     func connectPeripheral(success: @escaping DoneClosure, failure: @escaping DoneClosure) {
         if peripheral != nil {
@@ -224,10 +231,16 @@ extension BLESignalStackHandler {
                 
                 // 更新数据
                 DispatchQueue.main.async {
+                    
                     if self.buffer.size() > 10 {
-                        self.output.text = "Output:\n\t" + self.buffer.batchStr(true)
+                        if let batched = self.buffer.batchStr(true) {
+                            self.output.text = "Output:\n\t" + batched
+                        }
+                        
                     } else {
-                        self.output.text = "Output:\n\t" + self.buffer.batchStr(false)
+                        if let batched = self.buffer.batchStr(false) {
+                            self.output.text = "Output:\n\t" + batched
+                        }
                     }
                 }
             }
