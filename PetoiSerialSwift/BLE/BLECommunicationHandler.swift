@@ -34,13 +34,17 @@ class BLECommunicationHandler:  NSObject {
     
     private var buffer: StringBuffer! // 封装的类似于字符串缓存，用于存储和处理每次recv返回的数据
     
+    private var lastTime: TimeInterval! // 对比时间差，如果没有数据继续收到，且超过1s则认为设备已经发送完毕
+    private var motors: [Int]! // 电机调整角度
     
-    init(textview: UITextView, delegate: AppDelegate, receive: @escaping RecvClosure) {
+    
+    init(delegate: AppDelegate, receive: @escaping RecvClosure) {
         super.init()
         
         self.delegate = delegate
         self.buffer = StringBuffer()
         self.receive = receive
+        self.lastTime = Date().timeIntervalSince1970
         
         // 对蓝牙设备进行初始化
         loadBleInformation()
@@ -67,6 +71,9 @@ class BLECommunicationHandler:  NSObject {
         bleMsgHandler = delegate.bleMsgHandler
         devices = delegate.devices
         
+        // 读取电机的角度
+        motors = loadMotorsAngleFromDelegate()
+        
         // 是否有在处理蓝牙消息
         if let handler = bleMsgHandler {
             if !handler.isRunning() { // 没有运行
@@ -86,10 +93,34 @@ class BLECommunicationHandler:  NSObject {
         delegate.bleMsgHandler = bleMsgHandler
         delegate.devices = devices
         
+        // 读取电机的角度
+        saveMotorsAngleToDelegate(motors: motors)
+        
+        // 关闭蓝牙消息处理
         if let handler = bleMsgHandler {
             if handler.isRunning() { // 暂停对蓝牙消息的处理
                 bleMsgHandler?.stopListen()
             }
+        }
+    }
+
+
+    func loadMotorsAngleFromDelegate() -> [Int] {
+        
+        // 读取电机的角度
+        for i in 0...15 {
+            motors[i] = delegate.motors[i]
+        }
+        
+        return motors
+    }
+
+
+    func saveMotorsAngleToDelegate(motors: [Int]) {
+       // 读取电机的角度
+        for i in 0...15 {
+            delegate.motors[i] = motors[i]
+            self.motors[i] = motors[i]
         }
     }
     
@@ -193,8 +224,14 @@ class BLECommunicationHandler:  NSObject {
         }
     }
 
-    func send(msg: String) {
+    func sendCmdViaSerial(msg: String) {
+        // 先清空数据
+        buffer.clear()
         
+        // 再发送命令，这样接收到的数据应该就是返回的信息
+        bluetooth.sendData(data: Converter.cvtString(toData: msg), peripheral: peripheral!, characteristic: txdChar!)
+        
+        sleep(1)
     }
 }
 
@@ -204,28 +241,55 @@ extension BLECommunicationHandler {
     
     // MARK: 线程，蓝牙消息处理函数
     @objc func recv() {
+        
+        // 有数据接收
         let data = bluetooth.recvData()
         if data != nil {
-            if let feedback = String(data: data!, encoding: .utf8) {
+            if var feedback = String(data: data!, encoding: .utf8) {
+                
+                // 对异常字符串进行调整
+                if feedback.contains("\r\n") {
+                    feedback = feedback.replacingOccurrences(of: "\r\n", with: "")
+                }
+                
+                if feedback.contains("\n") {
+                    feedback = feedback.replacingOccurrences(of: "\n", with: "")
+                }
+                
+                if feedback.contains("\r") {
+                    feedback = feedback.replacingOccurrences(of: "\r", with: "")
+                }
+                
+                if feedback.contains("\t") {
+                    feedback = feedback.replacingOccurrences(of: "\t", with: ",")
+                }
+                
+                if feedback.contains(",,") {
+                    feedback = feedback.replacingOccurrences(of: ",,", with: ",")
+                }
                 
                 // 将当前的文本粘贴到输出的文本后面
                 buffer.push(feedback)
                 
-                // 更新数据
-                if self.buffer.size() > 15 { // buffer 中数据存储的数据条目超过15条，取完后清空
-                    if let batched = self.buffer.batchStr(true) {
-                        self.receive!(batched)
-                    }
-                } else { // 不清空
-                    if let batched = self.buffer.batchStr(false) {
-                        self.receive!(batched)
-                    }
+                // 更新时间
+                lastTime = Date().timeIntervalSince1970
+            }
+        }
+        
+        if Date().timeIntervalSince1970 - lastTime > 1 {// 超过1s没有新的数据，则认为数据发送完毕
+            if !buffer.isEmpty() {
+                if let batched = self.buffer.batchStr(true) {
+                    
+                    // 把数据交给回调函数
+                    self.receive!(batched)
+                    
+                    // 安全起见，清空数据
+                    buffer.clear()
                 }
             }
         }
     }
-    
-    
+        
     
     // MARK: 线程，尝试建立管道
     @objc func setupBLETunnels() {
@@ -261,6 +325,9 @@ extension BLECommunicationHandler {
                 return
             }
         }
+        
+        // 等待5秒后再建立信道
+        sleep(5)
         
         // 获取可用的消息信道
         let characteristics = bluetooth.getCharacteristic()

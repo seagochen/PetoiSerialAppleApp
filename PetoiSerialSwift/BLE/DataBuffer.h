@@ -43,7 +43,7 @@
 - (NSData*)tryGetToken;
 
 // MARK: 测试打印
-- (void)print: (NSData*)data;
++ (void)print: (NSData*)data;
 
 @end
 

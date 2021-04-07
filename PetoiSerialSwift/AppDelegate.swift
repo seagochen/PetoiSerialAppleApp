@@ -29,11 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // 设置蓝牙搜索的pickerview
     var devices: [CBPeripheral]!
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+    
+    // 设置电机角度
+    var motors: [Int]!
+    
+    
+    func initParameters() {
         // 初始化蓝牙
         bluetooth = BLEPeripheralHandler()
         
@@ -42,6 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 清空列表，避免出现异常
         devices = []
+        
+        // 创建舵机旋转角度
+        motors = [Int](repeating: 0, count: 16)
+    }
+
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        // 初始化与蓝牙有关的全部参数
+        initParameters()
         
         return true
     }

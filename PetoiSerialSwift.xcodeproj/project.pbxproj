@@ -12,8 +12,9 @@
 		5510BB85261423B5000FE472 /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BB84261423B5000FE472 /* ColorConverter.swift */; };
 		5510BB90261448B7000FE472 /* CalibrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BB8F261448B7000FE472 /* CalibrationViewController.swift */; };
 		5510BB982614499D000FE472 /* ViewJumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5510BB972614499D000FE472 /* ViewJumper.swift */; };
-		552B974B2615C35700352ABA /* BLESignalStackHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B974A2615C35700352ABA /* BLESignalStackHandler.swift */; };
+		552B974B2615C35700352ABA /* BLECommunicationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B974A2615C35700352ABA /* BLECommunicationHandler.swift */; };
 		552B9765261621DD00352ABA /* StringBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 552B9764261621DD00352ABA /* StringBuffer.m */; };
+		552B97812616FA8300352ABA /* BLESignalStackHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552B97802616FA8300352ABA /* BLESignalStackHandler.swift */; };
 		559C1376260B53C800BD588E /* Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = 559C1375260B53C800BD588E /* Converter.m */; };
 		55CCA9A6260F1769002BCABD /* DataBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CCA9A5260F1769002BCABD /* DataBuffer.m */; };
 		55D2455D2609A60A00EE5FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D2455C2609A60A00EE5FE6 /* AppDelegate.swift */; };
@@ -55,9 +56,10 @@
 		5510BB84261423B5000FE472 /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 		5510BB8F261448B7000FE472 /* CalibrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationViewController.swift; sourceTree = "<group>"; };
 		5510BB972614499D000FE472 /* ViewJumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJumper.swift; sourceTree = "<group>"; };
-		552B974A2615C35700352ABA /* BLESignalStackHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLESignalStackHandler.swift; sourceTree = "<group>"; };
+		552B974A2615C35700352ABA /* BLECommunicationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLECommunicationHandler.swift; sourceTree = "<group>"; };
 		552B9763261621CD00352ABA /* StringBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringBuffer.h; sourceTree = "<group>"; };
 		552B9764261621DD00352ABA /* StringBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringBuffer.m; sourceTree = "<group>"; };
+		552B97802616FA8300352ABA /* BLESignalStackHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLESignalStackHandler.swift; sourceTree = "<group>"; };
 		559C1374260B53C800BD588E /* PetoiSerialSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PetoiSerialSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		559C1375260B53C800BD588E /* Converter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Converter.m; sourceTree = "<group>"; };
 		559C137A260B53DA00BD588E /* Converter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Converter.h; sourceTree = "<group>"; };
@@ -120,7 +122,8 @@
 		552B97522615C8E400352ABA /* BLE */ = {
 			isa = PBXGroup;
 			children = (
-				552B974A2615C35700352ABA /* BLESignalStackHandler.swift */,
+				552B97802616FA8300352ABA /* BLESignalStackHandler.swift */,
+				552B974A2615C35700352ABA /* BLECommunicationHandler.swift */,
 				55D2458F2609A66100EE5FE6 /* BLEPeripheralHandler.swift */,
 				550FE812261192A300E81E5A /* BLEMessageDetector.swift */,
 				55CCA9A4260F1769002BCABD /* DataBuffer.h */,
@@ -481,7 +484,7 @@
 				55D519002611CC0D0011BF4F /* WidgetTools.swift in Sources */,
 				5510BB90261448B7000FE472 /* CalibrationViewController.swift in Sources */,
 				55D245612609A60A00EE5FE6 /* MainViewController.swift in Sources */,
-				552B974B2615C35700352ABA /* BLESignalStackHandler.swift in Sources */,
+				552B974B2615C35700352ABA /* BLECommunicationHandler.swift in Sources */,
 				55D2455D2609A60A00EE5FE6 /* AppDelegate.swift in Sources */,
 				552B9765261621DD00352ABA /* StringBuffer.m in Sources */,
 				55D245902609A66100EE5FE6 /* BLEPeripheralHandler.swift in Sources */,
@@ -489,6 +492,7 @@
 				5510BB982614499D000FE472 /* ViewJumper.swift in Sources */,
 				55D2455F2609A60A00EE5FE6 /* SceneDelegate.swift in Sources */,
 				55CCA9A6260F1769002BCABD /* DataBuffer.m in Sources */,
+				552B97812616FA8300352ABA /* BLESignalStackHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

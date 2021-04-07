@@ -192,7 +192,7 @@
 }
 
 
-- (void)print: (NSData*)data
++ (void)print: (NSData*)data
 {
     if ([data length] > 0) {
         NSInteger len = 0;
@@ -256,7 +256,7 @@
     if (! [self isString:data]) return;
 
     printf("----------------data------------------\n");
-    [self print: data];
+    [DataBuffer print: data];
     printf("--------------------------------------\n");
     
     if ([self.lock tryLock])
@@ -275,7 +275,7 @@
             NSData* token = [Converter cvtCBytesToData:self.buffer length:tailer];
 
             printf("---------------token------------------\n");
-            [self print: token];
+            [DataBuffer print: token];
             printf("--------------------------------------\n");
 
             // 把数据写入MutableArray

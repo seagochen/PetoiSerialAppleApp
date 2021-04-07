@@ -104,7 +104,7 @@ class BLEPeripheralHandler: NSObject {
 
     // MARK: 5.2. 接收数据
     func recvData() -> Data? {
-        let size = buffer.getTokenSize()
+//        let size = buffer.getTokenSize()
         return buffer.tryGetToken()
     }
     
@@ -208,7 +208,7 @@ extension BLEPeripheralHandler: CBPeripheralDelegate {
                     didDiscoverServices error: Error?) {
         
         if error != nil { // failed
-            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n error:\(String(describing: error))")
+//            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n error:\(String(describing: error))")
             return
         }
         
@@ -224,11 +224,11 @@ extension BLEPeripheralHandler: CBPeripheralDelegate {
                         CBService, error: Error?) {
         
         if error != nil { // failed
-            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n service:\(String(describing: service))\n error:\(String(describing: error))")
+//            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n service:\(String(describing: service))\n error:\(String(describing: error))")
             return
         }
         
-        print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n service:\(String(describing: service))")
+//        print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n service:\(String(describing: service))")
           
         for characteristic in service.characteristics ?? [] {
             uuids.append(characteristic)
@@ -241,14 +241,14 @@ extension BLEPeripheralHandler: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
         if error != nil {
-            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))\n error:\(String(describing: error))")
+//            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))\n error:\(String(describing: error))")
             return
         }
         
-        print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))")
+//        print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))")
         
         if let data = characteristic.value {
-            print("recv from device with \(data.count) bytes")
+//            print("recv from device with \(data.count) bytes")
             self.buffer.append(data)
         }
     }
@@ -256,7 +256,7 @@ extension BLEPeripheralHandler: CBPeripheralDelegate {
     //MARK: 检测中心向外设写数据是否成功
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         if error != nil {
-            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))\n error:\(String(describing: error))")
+//            print("\(#function)\n peripheral:\(String(describing: peripheral.name))\n characteristic:\(String(describing: characteristic.description))\n error:\(String(describing: error))")
             return
         }
         

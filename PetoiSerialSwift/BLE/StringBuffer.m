@@ -80,7 +80,7 @@
             }
             
             if (clean) {
-                [self.buffer removeAllObjects];
+                [self clear];
             }
             
             [self.lock unlock];

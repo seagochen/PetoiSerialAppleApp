@@ -17,7 +17,8 @@ class MainViewController: UIViewController  {
     var outputString: String = ""
     
     // ble 消息栈
-    var bleHelper: BLESignalStackHandler!
+//    var bleHelper: BLECommunicationHandler!
+    var helper: BLESignalStackHandler!
     
     // iOS 控件
     @IBOutlet weak var bleSearchBtn: UIButton!
@@ -40,7 +41,25 @@ class MainViewController: UIViewController  {
         
         // 对信道蓝牙相关通信做准备
         let delegate = UIApplication.shared.delegate as! AppDelegate
-        bleHelper = BLESignalStackHandler(textview: outputTextView, delegate: delegate)
+        helper = BLESignalStackHandler(delegate: delegate, receive: { msg in
+            
+            if !self.helper.isEmpty() {
+                // 对传入的消息进行比对，如果当前行和栈顶的key相同
+                // 表示即将传入的下一行参数为value
+                var top = self.helper.popupToken()
+                top.feedback = msg
+                
+                // 默认操作
+                self.helper.pushToken(token: top)
+                self.helper.debugStack()
+                
+                // update the textbrowser
+                DispatchQueue.main.async {
+                    print("Output:\n\t" + self.helper.messageFromTop())
+                    self.outputTextView.text = "Output:\n\t" + self.helper.messageFromTop()
+                }
+            }
+        })
     }
 
     
@@ -73,6 +92,7 @@ class MainViewController: UIViewController  {
          * 输出文本框
          */
         outputTextView.text = "Output:\n\t"
+        outputTextView.delegate = self
         WidgetTools.roundCorner(textView: outputTextView, boardColor: bleSearchBtn.backgroundColor!)
     }
 
@@ -95,7 +115,8 @@ class MainViewController: UIViewController  {
     @IBAction func searchBtnPressed(_ sender: UIButton) {
         
         // 搜索蓝牙设备
-        bleHelper.startScanPeripherals()
+//        bleHelper.startScanPeripherals()
+        helper.startScanPeripherals()
 
         // 把按钮设置为不可用
         WidgetTools.disable(button: bleSearchBtn)
@@ -112,7 +133,7 @@ class MainViewController: UIViewController  {
         case "Connect":
             
             // 对设备进行连结
-            bleHelper.connectPeripheral(success: {
+            helper.connectPeripheral(success: {
                 // 修改名字
                 self.connectBtn.setTitle("Disconnect", for: .normal)
                 
@@ -134,7 +155,7 @@ class MainViewController: UIViewController  {
         case "Disconnect":
             
             // 断开蓝牙连结
-            bleHelper.disconnectPeripheral(success: {
+            helper.disconnectPeripheral(success: {
                 
                 // 修改按钮文字
                 connectBtn.setTitle("Connect", for: .normal)
@@ -153,21 +174,23 @@ class MainViewController: UIViewController  {
     
     // MARK: 休息
     @IBAction func restPressed(_ sender: UIButton) {
-        bleHelper.sendCmdViaSerial(cmd: "d")
+//        bleHelper.sendCmdViaSerial(cmd: "d")
+        helper.sendCmdViaSerial(msg: "d")
     }
     
     // MARK: 陀螺仪
     @IBAction func gyrosocopePressed(_ sender: UIButton) {
-        bleHelper.sendCmdViaSerial(cmd: "g")
+//        bleHelper.sendCmdViaSerial(cmd: "g")
+        helper.sendCmdViaSerial(msg: "g")
     }
     
     // MARK: 校准
     @IBAction func calibrationBtnPressed(_ sender: Any) {
         // 先发送一个c
-        bleHelper.sendCmdViaSerial(cmd: "c")
+//        helper.sendCmdViaSerial(msg: "c")
 
         // 把蓝牙设备信息存储一下
-        bleHelper.saveBleInformation()
+        helper.saveBleInformation()
 
         // 跳转到 CalibrationVC
         let vc = self.storyboard?.instantiateViewController(identifier: "CalibrationVC") as! CalibrationViewController
@@ -182,7 +205,7 @@ extension MainViewController {
     @objc func searchBLEDevices() {
         sleep(1)
 
-        let devices = bleHelper.stopScanPeripherals()
+        let devices = helper.stopScanPeripherals()
 
         // 弹出选择菜单
         DispatchQueue.main.async {
@@ -204,7 +227,7 @@ extension MainViewController {
                     self.selectedDeviceLabel.text = "Device: " + String(describing: values!)
                     
                     // 设置蓝牙连结
-                    self.bleHelper.selectPeripheral(index: indexes)
+                    self.helper.selectPeripheral(index: indexes)
                  
                     // 把连结按钮调整为可用
                     WidgetTools.enable(button: connectBtn)
@@ -224,8 +247,8 @@ extension MainViewController {
 }
 
 
-extension MainViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+extension MainViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         return false
     }
 }
